@@ -1,0 +1,16 @@
+<template>
+  <lightning-card>
+    <div class="slds-var-p-around_medium">
+      <lightning-record-picker
+        label="Filter by Account"
+        placeholder="Search with Account name or owner name"
+        object-api-name="Account"
+        field-level-help="Choose an Account you would like to filter by"
+        onchange={handleOnChange}
+        matching-info={matchingInfo}
+        display-info={displayInfo}
+      >
+      </lightning-record-picker>
+    </div>
+  </lightning-card>
+</template>
