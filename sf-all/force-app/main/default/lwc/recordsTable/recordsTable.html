@@ -1,3 +1,33 @@
 <template>
-  <lightning-card> record Id: {selectedRecord} </lightning-card>
+  <lightning-card>
+    <div class="slds-var-m-around_medium">
+      <template lwc:if={finAccData}>
+        <template lwc:if={showDatatable}>
+          <lightning-datatable
+            key-field="id"
+            data={finAccData}
+            show-row-number-column
+            row-number-offset={rowOffset}
+            hide-checkbox-column
+            columns={columns}
+          >
+          </lightning-datatable>
+          <div class="slds-m-around--medium">
+            <lightning-button
+              label="Increase row offset"
+              onclick={increaseRowLimit}
+            >
+            </lightning-button>
+          </div>
+        </template>
+        <template lwc:elseif={selectedRecord}> No related records. </template>
+        <template lwc:else> Please select an Account to filter by </template>
+      </template>
+      <template lwc:elseif={errors.isError}>
+        <div class="slds-text-color_destructive">
+          Something went wrong [ {errors.errorType} ]
+        </div>
+      </template>
+    </div>
+  </lightning-card>
 </template>
