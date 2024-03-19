@@ -12,5 +12,30 @@
       >
       </lightning-record-picker>
     </div>
+    <div class="slds-var-p-around_medium">
+      <fieldset class="slds-form-element">
+        <legend class="slds-form-element__legend slds-form-element__label">
+          Find related
+        </legend>
+        <div class="slds-form-element__control">
+          <div class="slds-checkbox_button-group">
+            <template for:each={availableObjects} for:item="obj">
+              <span class="slds-button slds-checkbox_button" key={obj.ApiName}>
+                <input
+                  type="checkbox"
+                  id={obj.ApiName}
+                  value={obj.ApiName}
+                  name="checkbox"
+                  onchange={handleObjectChange}
+                />
+                <label class="slds-checkbox_button__label" for={obj.ApiName}>
+                  <span class="slds-checkbox_faux">{obj.Label}</span>
+                </label>
+              </span>
+            </template>
+          </div>
+        </div>
+      </fieldset>
+    </div>
   </lightning-card>
 </template>
