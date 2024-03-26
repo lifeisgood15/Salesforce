@@ -51,7 +51,7 @@ export default class SearchRecords extends LightningElement {
   dispatchChange() {
     this.dispatchEvent(
       new CustomEvent("itemselected", {
-        detail: { recordId: this.selectedRecord, apiName: this.selectedObjects }
+        detail: { recordId: this.selectedRecord, apiName: this.selectedObjects.join(',') }
       })
     );
   }
